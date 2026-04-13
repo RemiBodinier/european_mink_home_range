@@ -1,0 +1,15 @@
+Data comprehension:
+- Individual: M is for "mink", XX is the order in wich the mink was captured in its study site, ZZ is the study site (LA = Landes de Gascogne region, CA = Charente river upstream Angoulême, RM = Rochefort marsh).
+- Individual_year (MXXZZ): Same as "Individual" but som individuals may have a "2" at the end of the name, indicating that the individuals was monitored for a second, separate period.
+- Sex: F for female and M for male
+- Method: the method with wich the home range was modelled. 
+- Landscape_type: "River" refers to a landscape featuring a long, narrow wetland, whereas "Marsh" refers to a landscape featuring a wide, rounded wetland.
+- Period: We defined "Breeding" period as April 1st - August 31st, "Non-breeding" as the rest of the year. 
+- Area_95_ha refers to the entire home range area in hectares (a term derived from the Kernel’s 95% isopleths)
+- Area_50_ha refers to the home range core area in hectares (a term derived from the Kernel’s 50% isopleths)
+- Area_WI refers to the wetland of interest area in hectares (see Methods 2.5 for modelling)
+- HR_area_outside_WI refers to the portion area of home range in hectares that is outside the wetland of interest
+- HR0W: proportion of the home range outside the wetland of interest (HR_area_outside_WI / Area_95_ha)
+- WI_area_outside_HR refers to the portion area of the wetland of interest in hectares that is npt covered by the home range
+- W0HR: proportion of the wetland of interest not covered by the home range (WI_area_outside_HR / Area_WI)
+- WCI: wetland conformity index = (3*(1/HR0W))+(1/W0HR)
