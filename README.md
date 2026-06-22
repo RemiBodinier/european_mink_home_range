@@ -11,5 +11,4 @@ Data comprehension:
 - HR_area_outside_WI refers to the portion area of home range in hectares that is outside the wetland of interest
 - HR0W: proportion of the home range outside the wetland of interest (HR_area_outside_WI / Area_95_ha)
 - WI_area_outside_HR refers to the portion area of the wetland of interest in hectares that is npt covered by the home range
-- W0HR: proportion of the wetland of interest not covered by the home range (WI_area_outside_HR / Area_WI)
-- WCI: wetland conformity index = (3*(1/HR0W))+(1/W0HR)
+
