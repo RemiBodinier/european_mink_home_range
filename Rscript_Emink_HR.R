@@ -45,37 +45,6 @@ pairs(emm1) #Significant differences occur between EHR and Kernel, GAM and Kerne
 emm2 <- emmeans(newmodhr0w, ~ Landscape_type)
 pairs(emm2) #There is a significant difference between Marsh and River
 
-############W0HR : proportion of wetland not covered by home range################
-#GLMM with beta distribution 
-modw0hr <- glmmTMB(W0HR ~ Method*Landscape_type + (1 | Individual_year), family = beta_family(link = "logit"), data = CompR_met)
-#Model selection
-results <- dredge(modw0hr)
-print(results)
-# Model selection supported the previous model, we get back to the summary
-summary(modw0hr)
-Anova(modw0hr, type = "II") #The methods don't have the same effect depending the landscape type. 
-emm1 <- emmeans(modw0hr, ~ Method | Landscape_type)
-pairs(emm1) #In marsh there is a significant difference only between Kernel and LoCoH. In river, all values are significantly different, except between GAM and Kernel.
-
-#############WCI : wetland conformity index############################
-# Generalized Linear Mixed Model (GLMM) with gamma distribution 
-modwci <- glmmTMB(WCI ~ Method * Landscape_type + (1 | Individual_year), family = Gamma(link = "log"), data = CompR_met)
-#Model selection
-results <- dredge(modwci)
-print(results) #Two models are supported: additive model including method and landscape type, additive model+interaction
-avg_mod <- model.avg(results, subset = delta < 2)
-summary(avg_mod)
-#Conditional average show interaction not significant so support an additive model including both estimation method and landscape type as explanatory variables.
-newmodwci <- glmmTMB(WCI ~ Method + Landscape_type + (1 | Individual_year),family = Gamma(link = "log"), data = CompR_met)
-summary(newmodwci)
-Anova(newmodwci, type = "II") #Method and Landscape type have both a significant effect on HR0W.
-#Pairwise comparison of method
-emm1 <- emmeans(newmodwci, ~ Method)
-pairs(emm1) #Significant differences occur between EHR and Kernel, GAM and Kernel, Kernel and LoCoH
-#Pairwise comparison of landscapes
-emm2 <- emmeans(newmodwci, ~ Landscape_type)
-pairs(emm2) #There is a significant difference between Marsh and River
-
 #############Home range and core area size using the GAM method############################
 #######Creation of dataset
 gam_data <- CompR_met %>%
